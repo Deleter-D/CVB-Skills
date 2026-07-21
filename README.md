@@ -46,6 +46,8 @@ Thanks to the above projects and authors. The copyright of each Skill belongs to
 | `debug-loop` | user-invoked | Complex, hard-to-reproduce bugs needing systematic investigation; leaving a debugging archive for team retrospective; replacing "tweak-and-pray" debugging with controlled experiments. |
 | `grill-me` / `grilling` | user / model-invoked | Stress-testing a plan before building; technical design review; forcing fuzzy architectural decisions into clarity one question at a time. |
 | `mermaid` | model-invoked | Documentation figures, architecture/flowchart/ER/Gantt diagrams; needing directly-renderable Mermaid code rather than images; version-controlled diagrams that evolve with code. |
+| `sglang-perf-ablation` | model-invoked | Performance-testing SGLang serving across config variations (消融 / ablation / sweep); running a config-knob matrix with one server per combo and collecting all benchmark results into a single tuning report; requires a base launch script and a benchmark script. |
+| `sglang-spec-verify-timing` | model-invoked | Analyzing SGLang speculative-decoding decode traces (`.trace.json.gz`); measuring per-step GPU duration and inter-step gap of verify steps (e.g. `TARGET_VERIFY`); combining timing with accept length to recommend the optimal draft-step count per concurrency. |
 | `teach` | user-invoked | Systematically learning a new skill or domain across multiple sessions; wanting a traceable, resumable learning workspace; long-term retention over momentary fluency. |
 | `writing-great-skills` | user-invoked | Authoring or refining a Skill; diagnosing why a Skill behaves poorly; establishing a team-wide Skill authoring standard. |
 
