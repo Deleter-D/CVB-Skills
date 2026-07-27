@@ -17,4 +17,15 @@
 - Expected result:
 - Actual result:
 - Stably reproducible:
+- Reproduces from base/ snapshot:
+
+# Repro scripts
+
+Frozen snapshot in `claude_debug/base/`. One line per file, provenance first.
+
+- base/run_server.sh ← /abs/path/to/original/run_server.sh
+- base/bench.sh ← /abs/path/to/original/bench.sh
+- base/config.json ← /abs/path/to/original/config.json
+
+Large inputs (weights, datasets) are not copied; scripts reference them by absolute path.
 ```
