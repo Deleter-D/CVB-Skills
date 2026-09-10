@@ -1,0 +1,61 @@
+{
+  "agent_core": {
+    "digest_sha256": "477335bad397f3e6c1a2257b73df0d84a9ed98828fb73a53c80543110479b7a6",
+    "file_count": 85,
+    "git_commit": "ed255873374525c477b540b7bceecbd6e69ada15",
+    "source": "src/nsys_agent_tools"
+  },
+  "curated_overlays": {
+    "digest_sha256": "3c1775403d685ce2bf9d8c657dff77ef509231fb7dbbddce8781eb48db33f458",
+    "file_count": 9,
+    "git_commit": "ed255873374525c477b540b7bceecbd6e69ada15",
+    "index_entry_count": 53,
+    "policy": "supplemental release-reviewed synthesis; official docs/live help/report tools win on factual conflicts",
+    "source": "src/nsys_skill_builder/assets/curated_overlays"
+  },
+  "docs": {
+    "digest_sha256": "64a001b4de6516a8aa300957af3a4948d65fcd99ef0308aadae1f7031d64bb73",
+    "docs_index_entry_count": 390,
+    "generated_file_count": 252,
+    "git_commit": "ecba67cd097c4055b97fc1c859bd5eaf9c9eb793",
+    "source": "QuadD/Docs/Rst"
+  },
+  "export_level": "public",
+  "generated_at_utc": "2026-08-10T10:31:09.408455+00:00",
+  "glossary": {
+    "digest_sha256": "5da3c81e1b12cf18f61cae947bcab98e29ab9d0bfa2abf6980e05903a867aa65",
+    "file_count": 77,
+    "git_commit": "ed255873374525c477b540b7bceecbd6e69ada15",
+    "index_entry_count": 77,
+    "policy": "reviewed reference content (glossary terms and subject-matter notes); official docs/live help/report tools win on factual conflicts",
+    "source": "src/nsys_skill_builder/assets/glossary"
+  },
+  "notes": {
+    "digest_sha256": "d526fceca597f985719c2c94505c1ad9e60020572428626b459442add0d3ee10",
+    "file_count": 8,
+    "git_commit": "ed255873374525c477b540b7bceecbd6e69ada15",
+    "index_entry_count": 8,
+    "policy": "reviewed reference content (glossary terms and subject-matter notes); official docs/live help/report tools win on factual conflicts",
+    "source": "src/nsys_skill_builder/assets/notes"
+  },
+  "nsys": {
+    "binary_digest_sha256": "1a624927a8c539546c94b36c78a571799de9aea9484429e2d0e60abc56a64aec",
+    "recipe_count": 42,
+    "recipe_source": "installed-nsys/python/packages/nsys_recipe",
+    "recipe_source_digest_sha256": "9bda871f1b2f7a4dbb55b37af68655e143808f4b12751d93d1103b07f4bc3c32",
+    "recipe_source_git_commit": null,
+    "version": "NVIDIA Nsight Systems version 2026.5.1.79-265138702895v0"
+  },
+  "policy": {
+    "digest_sha256": "c23e581606fcec1b054c6552cfc26f7038c8b3781c4666ec4ed59931dc567b38",
+    "file_count": 7,
+    "source": "src/nsys_skill_builder/assets/policy_sources"
+  },
+  "recipe_metadata": {
+    "digest_sha256": "34ec808fc076d3cd32c119cde858fb58415673811702260d3185ca3aefb3b46b",
+    "file_count": 1,
+    "policy": "supplemental structured metadata for recipe-owned semantics not exposed by installed recipes",
+    "source": "src/nsys_skill_builder/assets/recipe_metadata"
+  },
+  "schema_version": "1.0.0"
+}
