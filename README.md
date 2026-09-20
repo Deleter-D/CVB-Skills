@@ -33,7 +33,7 @@ The Skills in this repository were curated, organized, and locally adapted from 
 
 - **[mattpocock/skills](https://github.com/mattpocock/skills)** — Matt Pocock's engineer Skills collection ("Skills for Real Engineers"). `grill-me`, `grilling`, `teach`, and `writing-great-skills` all originate from this repository.
 - **[mermaid-js/mermaid](https://github.com/mermaid-js/mermaid)** — the official Mermaid.js project. The syntax documentation under `mermaid` Skill's `references/` is adapted from its official docs ([mermaid.js.org](https://mermaid.js.org)).
-- **[anthropics/skills](https://github.com/anthropics/skills)** — Anthropic's official Agent Skills repository, which defines the `SKILL.md` format and the Agent Skills open standard (see [agentskills.io](https://agentskills.io)).
+- **[anthropics/skills](https://github.com/anthropics/skills)** — Anthropic's official Agent Skills repository, which defines the `SKILL.md` format and the Agent Skills open standard (see [agentskills.io](https://agentskills.io)). The `frontend-design` Skill (SKILL.md and its LICENSE.txt) originates from it, verbatim; note this Skill is licensed under Apache-2.0, unlike the MIT license of this repository as a whole.
 - **NVIDIA Nsight Systems skill pack** — NVIDIA's official agent skill pack for Nsight Systems (`nsys`), authored by NVIDIA. The `nsight-systems` Skill (SKILL.md, packaged docs/recipes/policy references, and `nsys_skill_cli` tooling) originates from it. Note: this Skill is licensed as Proprietary by NVIDIA, unlike the MIT license of this repository as a whole.
 
 Thanks to the above projects and authors. The copyright of each Skill belongs to its original LICENSE; this repository as a whole is released under the MIT license.
@@ -45,6 +45,7 @@ Thanks to the above projects and authors. The copyright of each Skill belongs to
 | Skill | Trigger | Applicable Scenarios |
 | ----- | ------- | -------------------- |
 | `debug-loop` | user-invoked | Complex, hard-to-reproduce bugs needing systematic investigation; leaving a debugging archive for team retrospective; replacing "tweak-and-pray" debugging with controlled experiments. |
+| `frontend-design` | model-invoked | Building new UI or reshaping an existing one; making deliberate, opinionated choices about aesthetic direction, palette, typography, layout, and copy; steering away from generic, templated "AI-generated" looks toward a design grounded in the brief's actual subject matter. |
 | `grill-me` / `grilling` | user / model-invoked | Stress-testing a plan before building; technical design review; forcing fuzzy architectural decisions into clarity one question at a time. |
 | `mermaid` | model-invoked | Documentation figures, architecture/flowchart/ER/Gantt diagrams; needing directly-renderable Mermaid code rather than images; version-controlled diagrams that evolve with code. |
 | `nsight-systems` | model-invoked | Working with NVIDIA Nsight Systems and `nsys`: verifying exact CLI syntax against live help, searching packaged product docs, analyzing `.nsys-rep` reports via deterministic report facts and bounded read-only SQL, running installed recipes, and preparing Nsight Compute handoff evidence for kernel-internal questions. |
