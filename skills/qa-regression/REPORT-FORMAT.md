@@ -7,7 +7,7 @@ One report per run, the same shape for every verdict. Every field is filled; a v
 
 - **Verdict:** FAIL — stopped at tier 2
 - **Change:** `origin/main@1a2b3c4` → `HEAD@5d6e7f8` (+ uncommitted), 6 files
-- **Run dir:** `qa_regression/20261026-112650/`
+- **Run dir:** `.qa_regression/20261026-112650/`
 
 | Tier | Status | Command | Passed | Failed | Skipped | Exit | Time |
 |-|-|-|-|-|-|-|-|
@@ -46,7 +46,7 @@ One report per run, the same shape for every verdict. Every field is filled; a v
 
 - **Verdict** — `PASS` when all three tiers PASS; `FAIL — stopped at tier N` when tier N is FAIL; otherwise `INCOMPLETE — tier N N/A`, naming every N/A tier.
 - **Change** — the ref the user named (or the default branch) with the merge-base SHA → head SHA, from step 1; `(+ uncommitted)` only when the change includes staged, unstaged, or untracked files; the changed-file count.
-- **Run dir** — this run's directory.
+- **Run dir** — this run's run dir under `.qa_regression/`.
 
 ## Tier table
 

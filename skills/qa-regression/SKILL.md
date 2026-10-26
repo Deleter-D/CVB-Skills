@@ -17,11 +17,15 @@ You are a **witness**, not a detective. A witness testifies to what was observed
 
 A witness also leaves the scene untouched. Never edit source, tests, fixtures, snapshots, config, or lockfiles; never skip, deselect, or rerun a test to get green; never `checkout`, `stash`, or `pull` mid-run. One run per tier; its result is the result.
 
-Each run writes to `./qa_regression/<YYYYMMDD-HHMMSS>/` under the project root: one `tierN.log` per tier that ran, plus `REPORT.md`. Apart from what the project's own commands generate (caches, build output), that directory is the only thing a run adds to the tree.
+## Working directory
+
+Every file the run writes lives under `.qa_regression/` in the current working directory. Before step 1, create `.qa_regression/` if it is missing, then this run's own **run dir** inside it, `.qa_regression/<YYYYMMDD-HHMMSS>/` (local time). The run dir holds the tier logs (`tierN.log`), `REPORT.md`, and every intermediate file — changed-file lists, target mappings, captured command output, scratch scripts. Nothing you write goes to `/tmp`, the home directory, or anywhere else in the tree.
+
+The project's own commands may still generate files (caches, build output) — leave those where they land. Apart from them, `.qa_regression/` is the only thing a run adds to the tree.
 
 ## 1. Pin the change
 
-The **base** is the merge-base of `HEAD` with the ref the user names (target branch, PR base, commit), otherwise with the remote default branch. The change is everything between base and the working tree — committed, staged, unstaged, and untracked: `git diff --name-status <base>` plus `git ls-files --others --exclude-standard`, excluding `qa_regression/` itself. Record the base ref and SHA, the `HEAD` SHA, and whether the change includes anything uncommitted (staged, unstaged, or untracked).
+The **base** is the merge-base of `HEAD` with the ref the user names (target branch, PR base, commit), otherwise with the remote default branch. The change is everything between base and the working tree — committed, staged, unstaged, and untracked: `git diff --name-status <base>` plus `git ls-files --others --exclude-standard`, excluding everything under `.qa_regression/`. Record the base ref and SHA, the `HEAD` SHA, and whether the change includes anything uncommitted (staged, unstaged, or untracked).
 
 If this is not a git repository or no base resolves, ask the user for the base.
 
@@ -54,7 +58,7 @@ Tier 1 covers only tests that tier 2's runner runs. A changed test file that bel
 
 Run tier 1, then 2, then 3. For each tier:
 
-- Run its command once, in the foreground, to completion — stdout and stderr into `tierN.log`, wall-clock time recorded. Never report a tier that is still running. Only if a run hangs past the time limit the project's CI sets for that job, or one the user gave, kill it.
+- Run its command once, in the foreground, to completion — stdout and stderr into the run dir's `tierN.log`, wall-clock time recorded. Never report a tier that is still running. Only if a run hangs past the time limit the project's CI sets for that job, or one the user gave, kill it.
 - Run the command as found. Beyond tier 1's target selection, add no fail-fast, filter, retry, or snapshot-update flags, and drop none of the project's own. Within a tier every failure is collected; fail-fast applies only _between_ tiers.
 - Setup the project's CI or docs prescribe for the command (dependency install, build, codegen) is part of the tier. When setup fails, the tier is red — do not improvise a fix.
 - Tier 3 runs only against an environment the project brings up for it, or a target the user named — never against production or a shared environment on your own initiative. Tear down what you started once the tier ends, pass or fail.
@@ -71,7 +75,7 @@ On FAIL, stop. Every later tier is **NOT RUN**.
 
 ## 5. Report
 
-Fill in the fixed format of [REPORT-FORMAT.md](REPORT-FORMAT.md), save it as `REPORT.md` in the run directory, and return it verbatim as your final output. PASS, FAIL, and INCOMPLETE runs share the one format.
+Fill in the fixed format of [REPORT-FORMAT.md](REPORT-FORMAT.md), save it as `REPORT.md` in the run dir, and return it verbatim as your final output. PASS, FAIL, and INCOMPLETE runs share the one format.
 
 Before returning it, cross-examine every line: a line that is not something you saw in a log, in git, or in a command you ran comes out.
 
